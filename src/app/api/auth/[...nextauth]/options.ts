@@ -4,7 +4,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
-      name: "due",
+      name: "carLicenseLearning",
       credentials: {
         email: { label: "email", type: "text" },
         password: { label: "password", type: "password" },
@@ -26,7 +26,6 @@ export const authOptions: NextAuthOptions = {
         if (res.ok && user) {
           return user;
         } else {
-          console.log(user);
           return null;
         }
       },
@@ -39,18 +38,16 @@ export const authOptions: NextAuthOptions = {
   },
 
   pages: {
-    signIn: "/signIn",
+    signIn: "/login",
   },
 
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user, profile }) {
       return { ...token, ...user };
     },
 
     async session({ session, token, user }) {
       session.user = token as any;
-      // console.log(token);
-      // console.log(user);
       return session;
     },
   },

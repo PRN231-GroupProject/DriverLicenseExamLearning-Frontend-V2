@@ -1,13 +1,13 @@
-import React from 'react'
+import React from "react";
 
 export default function Footer() {
   return (
     <div>
-      <footer className='fix'>
+      <footer className="fix">
         <div>
-            <h1>Hi</h1>
+          <h1>#toitinminhdang</h1>
         </div>
       </footer>
     </div>
-  )
+  );
 }
